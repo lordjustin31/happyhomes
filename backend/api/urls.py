@@ -13,8 +13,7 @@ from .views import (
 from django.conf import settings
 from django.conf.urls.static import static
 from rest_framework_simplejwt.views import TokenObtainPairView, TokenRefreshView
-from .views import UserHistoryListView, my_resident_pin, visitor_checkin, visitor_checkout, ResidentPinViewSet, ResidentApprovalViewSet, visitor_timeout, VisitorTrackingViewSet, HouseListCreateView, HouseViewSet, GuestHouseListView, GuestHouseDetailView, ReviewViewSet, FAQViewSet, ServiceFeeViewSet, BlogCommentViewSet, BulletinCommentViewSet, CommunityMediaViewSet, VisitorRequestViewSet
-
+from .views import UserHistoryListView, my_resident_pin, visitor_checkin, visitor_checkout, ResidentPinViewSet, ResidentApprovalViewSet, visitor_timeout, VisitorTrackingViewSet, HouseListCreateView, HouseViewSet, GuestHouseListView, GuestHouseDetailView, ReviewViewSet, FAQViewSet, ServiceFeeViewSet, BlogCommentViewSet, BulletinCommentViewSet, CommunityMediaViewSet, VisitorRequestViewSet, api_root
 
 router = DefaultRouter()
 router.register(r'pins', PinViewSet, basename='pin')
@@ -105,6 +104,7 @@ urlpatterns = [
     path('verify_email_code/', views.verify_email_code, name='verify_email_code'),
     
     path('', include(router.urls)),
+    path('api/', api_root, name='api-root'),
 ]
 
 if settings.DEBUG:

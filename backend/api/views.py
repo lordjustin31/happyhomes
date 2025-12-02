@@ -49,6 +49,8 @@ from django.utils.crypto import get_random_string
 import requests
 import json
 
+
+
 # Local app imports
 from .models import (
     BillingRecord,
@@ -110,6 +112,58 @@ from .serializers import (
 
 from itertools import chain
 
+@api_view(['GET'])
+@permission_classes([AllowAny])
+def api_root(request, format=None):
+    """
+    Public API root endpoint that lists all main routes for the frontend.
+    """
+    return Response({
+        "pins": "/api/pins/",
+        "reviews": "/api/reviews/",
+        "subdivisions": "/api/subdivisions/",
+        "bookings": "/api/bookings/",
+        "facilities": "/api/facilities/",
+        "available_slots": "/api/available-slots/",
+        "maintenance": "/api/maintenance/",
+        "news": "/api/news/",
+        "alerts": "/api/alerts/",
+        "contact_info": "/api/contact-info/",
+        "contact_messages": "/api/contact-messages/",
+        "visitor": "/api/visitor/",
+        "resident_pin": "/api/resident-pin/",
+        "residents": "/api/residents/",
+        "admin_visitors": "/api/admin/visitors/",
+        "houses": "/api/houses/",
+        "faq": "/api/faq/",
+        "service_fees": "/api/service-fees/",
+        "blog_comments": "/api/blog-comments/",
+        "bulletin_comments": "/api/bulletin-comments/",
+        "bulletins": "/api/bulletins/",
+        "community_media": "/api/community-media/",
+        "visitor_requests": "/api/visitor-requests/",
+        "auth": {
+            "register": "/api/register/",
+            "token_obtain": "/api/token/",
+            "token_refresh": "/api/token/refresh/",
+        },
+        "profile": {
+            "view": "/api/profile/",
+            "update": "/api/profile/update/",
+            "upload_document": "/api/profile/upload-document/",
+        },
+        "visitor_actions": {
+            "checkin": "/api/visitor/checkin/",
+            "checkout": "/api/visitor/checkout/<visitor_id>/",
+            "pending": "/api/visitor/pending/",
+            "approval": "/api/visitor/approval/<visitor_id>/",
+        },
+        "admin": {
+            "users": "/api/admin/users/",
+            "dashboard_stats": "/api/admin/dashboard-stats/",
+            "pin_stats": "/api/admin/pin-stats/",
+        },
+    })
 
 @api_view(['POST'])
 @permission_classes([AllowAny])
