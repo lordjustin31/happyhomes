@@ -68,7 +68,7 @@ CORS_ALLOWED_ORIGINS = [
     "http://127.0.0.1:3000",                 # desktop dev alternate
     "http://192.168.1.100:3000",
     "https://lordjustin31.github.io",
-    "https://lordjustin31.github.io/happyhomes/",  # production
+      # production
 ]
 
 CSRF_TRUSTED_ORIGINS = [
