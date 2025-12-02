@@ -1,11 +1,14 @@
-// ---------------------------
-// 🚀 API BASE URL
-// ---------------------------
-// GitHub Pages → Render backend
-export const API_BASE_URL = "https://happyhomes.onrender.com/api";
+// src/api.ts
 
+// ---------------------------
+// 🚀 API BASE URL from Vite env
+// ---------------------------
+export const API_BASE_URL = import.meta.env.VITE_API_URL;
+
+// ---------------------------
 // Helper for GET requests
-export async function apiGet(path: string) {
+// ---------------------------
+export async function apiGet<T = any>(path: string): Promise<T> {
   const response = await fetch(`${API_BASE_URL}${path}`, {
     method: "GET",
     headers: {
@@ -20,8 +23,10 @@ export async function apiGet(path: string) {
   return response.json();
 }
 
+// ---------------------------
 // Helper for POST requests
-export async function apiPost(path: string, data: any) {
+// ---------------------------
+export async function apiPost<T = any>(path: string, data: any): Promise<T> {
   const response = await fetch(`${API_BASE_URL}${path}`, {
     method: "POST",
     headers: {
@@ -37,12 +42,15 @@ export async function apiPost(path: string, data: any) {
   return response.json();
 }
 
-// Helper for authenticated requests (Bearer token)
-export async function apiAuth(path: string, token: string) {
+// ---------------------------
+// Helper for authenticated GET requests
+// ---------------------------
+export async function apiAuth<T = any>(path: string, token: string): Promise<T> {
   const response = await fetch(`${API_BASE_URL}${path}`, {
     method: "GET",
     headers: {
       Authorization: `Bearer ${token}`,
+      "Content-Type": "application/json",
     },
   });
 
