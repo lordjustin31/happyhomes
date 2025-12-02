@@ -17,6 +17,7 @@ import service1Image from '../images/service-1.png';
 import service2Image from '../images/service-2.png';
 import service3Image from '../images/service-3.png';
 
+
 interface LoginPageProps {}
 
 const ForgotPassword: React.FC<{ onClose: () => void }> = ({ onClose }) => {
