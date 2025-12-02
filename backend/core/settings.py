@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-uo-ctnd*!(!2z!^5pg$1te=zjdjem@$*58i7@ex^q51o5q#wa!
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["localhost", "127.0.0.1", "0ca4f2492036.ngrok-free.app"]
+ALLOWED_HOSTS = ["localhost", "127.0.0.1", ".onrender.com"]
 
 
 # Application definition
@@ -63,14 +63,14 @@ CORS_ALLOW_ALL_ORIGINS = False
 CORS_ALLOW_CREDENTIALS = True
 
 CORS_ALLOWED_ORIGINS = [
-    "https://dc80fc099d37.ngrok-free.app",  # ngrok
+
     "http://localhost:3000",                 # desktop dev
     "http://127.0.0.1:3000",                 # desktop dev alternate
     "http://192.168.1.100:3000",  
 ]
 
 CSRF_TRUSTED_ORIGINS = [
-    "https://dc80fc099d37.ngrok-free.app",
+    
     "http://localhost:3000",
     "http://127.0.0.1:3000",
     "http://192.168.1.100:3000",
@@ -183,6 +183,9 @@ SIMPLE_JWT = {
 # RECAPTCHA_SECRET_KEY = '6Lc7-awrAAAAABrw3hpyIVb7RVwFFkFVozjOwHbT',
 
 import os
+
+STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
