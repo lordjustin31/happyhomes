@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-uo-ctnd*!(!2z!^5pg$1te=zjdjem@$*58i7@ex^q51o5q#wa!
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["localhost", "127.0.0.1", ".onrender.com"]
+ALLOWED_HOSTS = ["localhost", "127.0.0.1", ".onrender.com", "lordjustin31.github.io", "happyphhomes.github.io",]
 
 
 # Application definition
@@ -66,7 +66,9 @@ CORS_ALLOWED_ORIGINS = [
 
     "http://localhost:3000",                 # desktop dev
     "http://127.0.0.1:3000",                 # desktop dev alternate
-    "http://192.168.1.100:3000",  
+    "http://192.168.1.100:3000",
+    "https://lordjustin31.github.io",
+    "https://lordjustin31.github.io/happyhomes/",  # production
 ]
 
 CSRF_TRUSTED_ORIGINS = [
@@ -74,6 +76,8 @@ CSRF_TRUSTED_ORIGINS = [
     "http://localhost:3000",
     "http://127.0.0.1:3000",
     "http://192.168.1.100:3000",
+    "https://lordjustin31.github.io",
+    "https://lordjustin31.github.io/happyhomes/",
 ]
 
 
